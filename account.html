@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Account | Shohayok</title>
+</head>
+
+<body class="bg-black">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 inset-x-0  shadow-lg z-50" style="background-color: #181717;">
+        <!-- Darker gray background for contrast -->
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <!-- Logo -->
+            <!-- Drawer Toggle Button for Mobile -->
+           
+            <div class="flex items-center">
+                <svg id="toggle-sidebar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-menu text-gray-200 cursor-pointer md:hidden mr-3">
+                <!-- Add text-white class for white color -->
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+                <a href="#" class="text-2xl font-bold flex items-center" style="color:#5173fa"><img width="35"
+                        src="https://raw.githubusercontent.com/mirzamojahid/shohayok_icon/refs/heads/main/logo.png"
+                        class="mr-3" /> Shohayok</a> <!-- Lighter text for contrast -->
+            </div>
+
+        </div>
+    </nav>
+    <div class="container mx-auto mt-20"> <!-- Adjusted top margin for navbar space -->
+
+        <div class="flex flex-col md:flex-row mt-8">
+
+            <!-- Sidebar Drawer -->
+            <div id="sidebar"
+                class="fixed inset-y-0 left-0 bg-white w-64 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 shadow-md z-40 rounded">
+                <!-- Lower z-index by default -->
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold mb-4">Account Menu</h2>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="block p-2 text-blue-600 hover:bg-gray-200 rounded">Profile</a></li>
+                        <li><a href="#" class="block p-2 text-blue-600 hover:bg-gray-200 rounded">Billing Address</a>
+                        </li>
+                        <li><a href="#" class="block p-2 text-blue-600 hover:bg-gray-200 rounded">Orders</a></li>
+                        <li><a href="#" class="block p-2 text-blue-600 hover:bg-gray-200 rounded">Wishlist</a></li>
+                        <li><a href="#" class="block p-2 text-blue-600 hover:bg-gray-200 rounded">Store Favorites</a>
+                        </li>
+                        <li><a href="#" class="block p-2 text-red-600 hover:bg-gray-200 rounded">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Overlay for drawer -->
+            <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden md:hidden z-30"></div>
+            <!-- Lower z-index than sidebar and navbar -->
+
+            <!-- Main Content -->
+            <div id="main-content" class="md:w-3/4 bg-white rounded shadow p-4 md:ml-4  mx-4 md:mx-0">
+                <h2 class="text-xl font-semibold mb-4">Welcome, User!</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Profile Section and Other Sections as needed -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const mainContent = document.getElementById('main-content');
+
+
+
+        toggleButton.addEventListener('click', () => {
+
+            sidebar.classList.toggle('-translate-x-full');
+            sidebar.classList.toggle('z-50');
+            overlay.classList.toggle('hidden');
+            sidebar.classList.remove("rounded");
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            sidebar.classList.remove('z-50');
+            overlay.classList.add('hidden');
+            sidebar.classList.toggle('rounded');
+        });
+
+    </script>
+
+</body>
+
+</html>
